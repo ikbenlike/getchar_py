@@ -4,8 +4,7 @@ static PyObject *getchar_getchar(PyObject *self, PyObject *args){
     if(!PyArg_ParseTuple(args, "")){
         return NULL;
     }
-    char *in = calloc(2, 1);
-    *in = getchar();
+    char in[2] = {getchar(), 0};
     PyObject *in_py = PyUnicode_FromFormat("%s", in);
     return in_py;
 }
